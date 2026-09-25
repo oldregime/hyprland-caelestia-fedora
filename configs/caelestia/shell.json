@@ -1,0 +1,29 @@
+{
+    "appearance": {
+        "transparency": {
+            "enabled": true
+        }
+    },
+    "dashboard": {
+        "showClockSeconds": false,
+        "showOnHover": true
+    },
+    "general": {
+        "apps": {
+            "explorer": [
+                "dolphin"
+            ],
+            "playback": [
+                "/usr/bin/vlc",
+                "--started-from-file"
+            ]
+        }
+    },
+    "services": {
+        "clockFormat": "TwentyFourHour",
+        "dataUnits": "Decimal",
+        "defaultPlayer": "Chromium",
+        "sensorUnits": "Celsius",
+        "weatherUnits": "Celsius"
+    }
+}
