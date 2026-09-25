@@ -23,6 +23,7 @@ echo "==> Installing packages (Compositor, Shell, GUI Utilities, Themes)..."
 sudo dnf install -y \
     hyprland \
     quickshell \
+    rofi \
     wdisplays \
     pavucontrol \
     blueman \
@@ -46,6 +47,7 @@ cp -r "$SCRIPT_DIR/configs/hypr/"* "$HOME/.config/hypr/"
 cp -r "$SCRIPT_DIR/configs/caelestia/"* "$HOME/.config/caelestia/"
 cp "$SCRIPT_DIR/configs/gtk-3.0/settings.ini" "$HOME/.config/gtk-3.0/settings.ini"
 cp "$SCRIPT_DIR/configs/gtk-4.0/settings.ini" "$HOME/.config/gtk-4.0/settings.ini"
+[ -f "$SCRIPT_DIR/configs/browser/brave-flags.conf" ] && cp "$SCRIPT_DIR/configs/browser/brave-flags.conf" "$HOME/.config/brave-flags.conf"
 
 # Make scripts executable
 chmod +x "$HOME/.config/hypr/scripts/"*.fish 2>/dev/null || true

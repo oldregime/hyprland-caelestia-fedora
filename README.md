@@ -53,6 +53,21 @@ sudo mv /usr/share/wayland-sessions/hyprland-uwsm.desktop /usr/share/wayland-ses
 - **GTK 3 & 4:** Configured with `adw-gtk3-dark` and `gtk-application-prefer-dark-theme = 1`.
 - **Qt & KDE apps:** Configured with `ColorScheme=BreezeDark` in `~/.config/kdeglobals`.
 
+### 5. Cross-Desktop Keyring Synchronization (No Account Logouts)
+When switching between KDE Plasma and Hyprland, Chromium-based browsers (Brave/Chrome) and terminal credentials (`gh`, Git) previously logged out because KDE uses **KWallet 6** (`kwalletd6`), while standalone compositors default to an empty GNOME Keyring.
+
+**The Solution Implemented:**
+1. **Brave Configuration:** In `~/.config/brave-flags.conf`, explicitly set `--password-store=kwallet6` so Brave always uses KWallet across all desktop sessions.
+2. **Hyprland Startup:** In `~/.config/hypr/hyprland/execs.conf`, initialize `/usr/libexec/pam_kwallet_init`, `/usr/bin/kwalletd6`, and `/usr/libexec/kf6/polkit-kde-authentication-agent-1`.
+*Result: All browser sessions, Google accounts, GitHub tokens, and terminal CLI logins remain seamlessly authenticated across both KDE and Hyprland.*
+
+### 6. Visual Material Alt+Tab Window Switcher
+Replaces silent in-workspace cycling with a full visual **Material-themed window switcher** across all workspaces using Rofi:
+```ini
+bind = ALT, Tab, exec, rofi -show window -theme material
+bind = Super, Tab, exec, rofi -show window -theme material
+```
+
 ---
 
 ## ⌨️ Shortcuts & Keybindings Reference
